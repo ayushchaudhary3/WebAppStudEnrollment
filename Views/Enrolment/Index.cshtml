@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebApStudentEnrolment.Models.Enrolment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EnrolmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.EnrolmentDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.Student.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Course.Description)</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-sm btn-info me-1">Details</a>
+                    <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-sm btn-warning me-1">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

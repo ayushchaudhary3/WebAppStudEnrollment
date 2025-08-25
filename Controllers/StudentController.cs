@@ -64,8 +64,7 @@ namespace WebApStudentEnrolment.Controllers
         }
 
         // POST: Students/Edit/5
-        [
-            HttpPost]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Address")] Student student)
         {
